@@ -1,0 +1,178 @@
+body {
+    background-color: #fbbd08;
+    transition: .5s linear
+}
+
+.Section {
+    overflow: hidden !important
+}
+
+.sidebar,
+.sideBarButton {
+    display: none !important
+}
+
+.sidebar.menu,
+.top.menu {
+    background-color: #666 !important
+}
+
+.top.menu {
+    box-shadow: none
+}
+
+.top.menu .item {
+    display: block !important;
+    color: #fff
+}
+
+.top.menu .item:active,
+.top.menu .item:hover {
+    color: #fbbd08 !important
+}
+
+.lowered {
+    margin-top: 50px
+}
+
+.fullScreenHeight {
+    height: 100%
+}
+
+.animatedBackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh
+}
+
+.animatedBackground i {
+    -webkit-font-smoothing: antialiased;
+    transition: all .3s;
+    position: absolute;
+    opacity: .3;
+    color: #fff !important;
+    font-size: 10vw;
+    animation: floatUp 10s ease-in infinite;
+    top: 100%
+}
+
+.animatedBackground i:nth-child(2n):before {
+    animation: slowRotate 30s linear;
+    animation-direction: reverse
+}
+
+.animatedBackground i:nth-child(odd):before {
+    animation: slowRotate 40s linear
+}
+
+.fadeIn {
+    opacity: 0
+}
+
+.section.active .fadeIn {
+    opacity: 1
+}
+
+.section.active .animated {
+    transition-duration: .7s
+}
+
+.section.active .delayAnimation800 {
+    transition-delay: .8s
+}
+
+.section.active .delayAnimation1000 {
+    transition-delay: 1s
+}
+
+.section.active .delayAnimation1200 {
+    transition-delay: 1.2s
+}
+
+.section.active .delayAnimation1400 {
+    transition-delay: 1.4s
+}
+
+.section.active .delayAnimation1600 {
+    transition-delay: 1.6s
+}
+
+.section.active .delayAnimation1800 {
+    transition-delay: 1.8s
+}
+
+.portfolioPage a,
+.servicesPage a {
+    font-weight: 600;
+    font-size: medium;
+    color: #eee !important
+}
+
+.portfolioPage a:active,
+.portfolioPage a:hover,
+.servicesPage a:active,
+.servicesPage a:hover {
+    transition-delay: 0 !important;
+    transition: .25s !important;
+    color: #666 !important
+}
+
+.contactPage a .icon {
+    color: #eee !important
+}
+
+.contactPage a .icon:active,
+.contactPage a .icon:hover {
+    color: #666 !important
+}
+
+@keyframes floatUp {
+    0% {
+        top: 110%;
+        top: calc(100% + 2em)
+    }
+    to {
+        top: -25%;
+        top: -2em
+    }
+}
+
+@keyframes slowRotate {
+    0% {
+        transform: rotate(0deg)
+    }
+    to {
+        transform: rotate(359deg)
+    }
+}
+
+@media only screen and (max-width:768px) {
+    p {
+        font-size: 13px
+    }
+    .sidebar,
+    .sideBarButton {
+        display: block !important
+    }
+    .sideBarButton {
+        border: 2px solid #fff
+    }
+    .ui.menu {
+        background-color: transparent
+    }
+    .top.menu {
+        box-shadow: none;
+        border: 0;
+        background-color: transparent !important
+    }
+    .top.menu .item {
+        display: none !important
+    }
+    #fp-nav {
+        display: none
+    }
+}
+
+/*# sourceMappingURL=main.4ec322f2.chunk.css.map */

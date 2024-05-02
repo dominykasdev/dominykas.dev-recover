@@ -1,17 +1,44 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React, { useState } from "react";
+import ReactDOM from "react-dom";
+import "semantic-ui-css/semantic.min.css";
+import "./css/style.css";
+import FullPageSections from "./components/FullPageSections";
+import Header from "./components/Header";
+import SidebarMenu from "./components/SidebarMenu";
+import AnimatedBackground from "./components/AnimatedBackground";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+const App = () => {
+  const pageRef = React.useRef();
+  const [toggle, setToggle] = useState(false); //Hook
+  const [page, setActivePage] = useState("home");
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+  function toggleSidebar() {
+    setToggle(!toggle);
+  }
+
+  function toggleSidebarOffClick() {
+    setToggle(false);
+  }
+
+  function toggleMenuItem(activeItem) {
+    setActivePage(activeItem);
+  }
+
+  return (
+    <div>
+      <AnimatedBackground />
+      <Header onToggleSidebar={toggleSidebar} activePage={page} />
+      <SidebarMenu
+        toggleSidebar={toggle}
+        toggleOffClick={pageRef}
+        activePage={page}
+      />
+      {/* <Menu /> */}
+      <div className="pusher" onClick={toggleSidebarOffClick}>
+        <FullPageSections destination={toggleMenuItem} />
+      </div>
+    </div>
+  );
+};
+
+ReactDOM.render(<App />, document.querySelector("#root"));
